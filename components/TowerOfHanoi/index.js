@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from 'react';
-import { RotateCcw, X } from 'lucide-react';
+import { RotateCcw, X, Info } from 'lucide-react';
 import { CARDS } from './cards';
 import { handleEffects, isValidMove } from './effects';
 import { styles } from './animations';
@@ -95,6 +95,7 @@ export default function TowerOfHanoi() {
   const [goalGradient, setGoalGradient] = useState('linear-gradient(to top, #4f46e5, #7c3aed)');
   const [timeWarpMoves, setTimeWarpMoves] = useState(0);
   const [isTimeWarpActive, setIsTimeWarpActive] = useState(false);
+  const [showInfoPopup, setShowInfoPopup] = useState(false);
 
   // Calculate dimensions
   const getMaxDiskWidth = () => MIN_DISK_WIDTH + (WIDTH_INCREMENT * (MAX_DISKS - 1));
@@ -485,6 +486,10 @@ export default function TowerOfHanoi() {
     setLockedTower(null); // Reset the locked tower
   };
 
+  const toggleInfoPopup = () => {
+    setShowInfoPopup(prev => !prev);
+  };
+
   return (
     <div className="flex flex-col items-center justify-between min-h-screen w-full p-4 bg-gray-900 text-gray-100 overflow-hidden">
       <div style={{ fontSize: '20%', textAlign: 'center', marginBottom: '20px' }}>
@@ -681,6 +686,43 @@ export default function TowerOfHanoi() {
   >
     <RotateCcw size={20} />
   </button>
+
+  {/* Info Icon */}
+  <div className="relative">
+    <Info 
+      size={20} 
+      className="text-gray-400 hover:text-white cursor-pointer" 
+      onClick={toggleInfoPopup} 
+    />
+    {showInfoPopup && (
+      <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/50">
+        <div className="p-4 bg-gray-800 border border-gray-600 rounded-lg shadow-lg">
+          <div className="font-mono text-gray-200">
+            <h3 className="font-bold">How to Play</h3><br></br>
+            <p>Click to select, click to drop</p>
+            <ul className="list-disc pl-5">
+              <li>Only one disk can be moved at a time.</li>
+              <li>A disk can only be placed on top of a larger disk.</li>
+              <li>Win by moving all disks to the right tower.</li>
+            </ul><br></br>
+            <p>Cards will appear randomly</p>
+            <ul className="list-disc pl-5">
+            <li>Select a card to apply it to your next turn.</li>
+              <li>Some are good, some are bad.</li>
+              <li>Some cards auto-apply, some can be held.</li>
+              <li>Use them wisely.</li>
+            </ul><br></br>
+            <button 
+              className="font-bold text-red-500" 
+              onClick={toggleInfoPopup}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    )}
+  </div>
 </div>
 
 {/* Win Modal */}
