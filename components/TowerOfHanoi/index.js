@@ -486,7 +486,7 @@ export default function TowerOfHanoi() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-between min-h-screen w-full p-4 bg-gray-900 text-gray-100">
+    <div className="flex flex-col items-center justify-between min-h-screen w-full p-4 bg-gray-900 text-gray-100 overflow-hidden">
       <div style={{ fontSize: '20%', textAlign: 'center', marginBottom: '20px' }}>
         www.nikdudukovic.com
       </div>
@@ -513,7 +513,7 @@ export default function TowerOfHanoi() {
       )}
 
       {/* Game Board and Cards Container */}
-      <div className="flex-1 w-full flex flex-col justify-center" style={{ minHeight: '600px' }}>
+      <div className="flex-1 w-full flex flex-col justify-center overflow-auto" style={{ maxHeight: 'calc(100vh - 150px)' }}>
         {/* Game Board */}
         <div id="game-container" className="relative w-full max-w-[1200px] mx-auto" style={{ height: 432 }}>
           <div 
