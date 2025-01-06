@@ -457,8 +457,11 @@ export default function TowerOfHanoi() {
   };
 
   const handleWin = () => {
+    // Check if the player has completed the final level
+    const winMessage = diskCount === MAX_DISKS ? "👑 YOU DID IT 👑" : "You won! Nice job!";
+    
     // Display the win message
-    alert(`You won! Nice job!`);
+    alert(winMessage);
     
     // Reset moves for the next level
     setMoves(0);
@@ -740,7 +743,7 @@ export default function TowerOfHanoi() {
       }}
     >
       <div className="font-mono text-gray-400 tracking-wider text-2xl">
-        NICE
+        {diskCount === MAX_DISKS ? "👑 YOU DID IT 👑" : "NICE"}
       </div>
     </div>
   </div>
