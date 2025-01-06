@@ -1,5 +1,56 @@
 Tower of Hanoi - Jan5 2025 v1.1
 
+Move the tower of disks to the far right tower. 
+One move at a time.
+Disks can only be placed on larger disks.
+
+Powerup cards will appear at random.
+Some apply automatically. Some can be held for later use.
+
+Good Luck.
+-Nik
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
