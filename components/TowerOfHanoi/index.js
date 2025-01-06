@@ -7,6 +7,7 @@ import { handleEffects, isValidMove } from './effects';
 import { styles } from './animations';
 import { generateUniqueId } from './utils';
 import { formatMoves } from './utils';
+import React from 'react';
 
 // Constants
 const DISK_HEIGHT = 48;
@@ -486,6 +487,10 @@ export default function TowerOfHanoi() {
 
   return (
     <div className="flex flex-col items-center justify-between min-h-screen w-full p-4 bg-gray-900 text-gray-100">
+      <div style={{ fontSize: '20%', textAlign: 'center', marginBottom: '20px' }}>
+        www.nikdudukovic.com
+      </div>
+
       {/* Active Effects Display */}
       {activeEffects.length > 0 && (
         <div className="fixed top-4 left-1/2 transform -translate-x-1/2 flex gap-4">
