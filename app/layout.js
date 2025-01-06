@@ -2,7 +2,7 @@ import './globals.css'
 
 export const metadata = {
   title: 'Tower of Hanoi',
-  description: 'A puzzle game with power-up cards',
+  description: 'A puzzle game by Nik Dudukovic',
 }
 
 export default function RootLayout({ children }) {
